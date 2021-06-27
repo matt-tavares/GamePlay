@@ -8,6 +8,7 @@ import { ListHeader } from "../../components/ListHeader";
 import { CategorySelect } from "../../components/CategorySelect";
 import { ButtonAdd } from "../../components/buttonAdd";
 import { Profile } from "../Profile";
+import { Background } from "../../components/Background";
 
 import { styles } from './style';
 
@@ -57,7 +58,7 @@ export function Home() {
     }
 
     return(
-        <View>
+        <Background>
             <View style={styles.header}>
                 <Profile />
                 <ButtonAdd onPress={handleAppointmentsCreate}/>
@@ -67,14 +68,13 @@ export function Home() {
                     categorySelected={category}
                     setCategory={handleCategorySelect}
                 />
-
-                <View style={styles.content}>
+                
                     <ListHeader
                         title='Partidas agendadas'
-                        subtitle='Total 6'
+                        subtitle='Total 2'
                     />
 
-                    <FlatList
+            <FlatList
                         data={appointments}
                         keyExtractor={item => item.id}
                         renderItem={({item}) => (
@@ -84,10 +84,10 @@ export function Home() {
                         />
                         )}
                         ItemSeparatorComponent={() => <ListDivider />}
+                        contentContainerStyle={{paddingBottom: 69}}
                         style={styles.matches}
                         showsVerticalScrollIndicator={false}
                     />
-            </View>
-        </View>
+        </Background>
     )
 }
