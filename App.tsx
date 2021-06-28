@@ -22,7 +22,6 @@ export default function App(){
     return <AppLoadimg />
   }
 
-
   return(
     <Background>
     <StatusBar
