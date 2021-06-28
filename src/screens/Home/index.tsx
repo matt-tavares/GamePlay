@@ -7,7 +7,7 @@ import { Appointment } from "../../components/Appointment";
 import { ListHeader } from "../../components/ListHeader";
 import { CategorySelect } from "../../components/CategorySelect";
 import { ButtonAdd } from "../../components/buttonAdd";
-import { Profile } from "../Profile";
+import { Profile } from "../../components/Profile";
 import { Background } from "../../components/Background";
 
 import { styles } from './style';
