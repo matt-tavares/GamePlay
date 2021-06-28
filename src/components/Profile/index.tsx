@@ -11,7 +11,6 @@ export function Profile() {
         <View style={styles.container}>
 
             <Avatar urlImage={user.avatar} />
-            {console.log(user.avatar)}
 
             <View>
                 <View style={styles.user}>
