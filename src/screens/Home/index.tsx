@@ -62,13 +62,14 @@ export function Home() {
                 <CategorySelect
                     categorySelected={category}
                     setCategory={handleCategorySelect}
-                />
+                    />
+
                 {
                   loading ? <Load/> : 
                   <>
                     <ListHeader
                         title='Partidas agendadas'
-                        subtitle='Total 2'
+                        subtitle={`Total: ${appointments.length}`}
                     />
 
                     <FlatList
