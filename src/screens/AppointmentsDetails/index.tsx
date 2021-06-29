@@ -6,7 +6,9 @@ import {
     Text,
     View ,
     FlatList,
-    Alert
+    Alert,
+    Share,
+    Platform
 } from 'react-native';
 
 import BannerImg from '../../assets/banner.png';
@@ -54,6 +56,17 @@ export function AppointmentsDetails() {
         }
     }
 
+    function handleShareInvitation() {
+        const message = Platform.OS === 'ios'
+        ? `Junte-se a ${guildSelected.guild.name}`
+        : Widget.instant_invite
+
+        Share.share({
+            message,
+            url: Widget.instant_invite
+        })
+    }
+
     useEffect(() => {
         fetchGuildWidget()
     },[])
@@ -63,7 +76,8 @@ export function AppointmentsDetails() {
             <Header
                 title='Detalhes'
                 action={
-                    <BorderlessButton>
+                    guildSelected.guild.owner &&
+                    <BorderlessButton onPress={handleShareInvitation}>
                         <Fontisto
                             name='share'
                             size={24}
